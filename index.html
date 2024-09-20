@@ -21,8 +21,8 @@
       <div class="container_principalHeader">
         <div class="container_contentHeader">
           <div class="headerSearch">
-            <input class="inputHeader" type="text" placeholder="Ingrese un elemento">
-            <button class="header_buttonSearch">Buscar <span class="material-symbols-outlined">
+            <input class="inputHeader" id="inputHeader" type="text" placeholder="Ingrese un elemento">
+            <button id="header_buttonSearch" class="header_buttonSearch">Buscar <span class="material-symbols-outlined">
                 search
                 </span>
             </button>
@@ -53,7 +53,7 @@
             </ul>
           </aside>
 
-          <div class="store" id="storeContainer"></div>/>
+          <div class="store" id="storeContainer"></div></div>
         </div>
 
     <!--POPUP-->
@@ -78,6 +78,7 @@
             <div class="containerButtonPopUp">
               <button class="buttonPopUp" cancel id="cancelButton">Cancelar</button>
               <button class="buttonPopUp" accept id="acceptButton">Aceptar</button>
+              <button class="buttonPopUp" delete id="deleteButton">Eliminar</button>
             </div>
 
 
@@ -86,7 +87,7 @@
         </div>
 
     </main>
-
+    
     <script type="module" src="./main.js"></script>
   </body>
 </html>

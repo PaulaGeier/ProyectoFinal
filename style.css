@@ -73,14 +73,15 @@
 /*=========MAIN============*/
 .conteinerView{
 display: grid;
-grid-template-columns: 0.6fr 2fr;
+grid-template-columns: 0.2fr 0.8fr;
 
 }
 /*=========STORE============*/
 .store{
+max-height: 92vh;
+overflow: auto;
 background-color: #eeee; 
-height: 92vh;
-
+width: 100%;
 
 }
 
@@ -93,16 +94,21 @@ height: 92vh;
   align-items: center;
   flex-direction: column;
 }
+.containerTitleSection{
+  margin: 1rem;
+  font-size: 3vh;
+  border-bottom: 1px solid grey;
+}
 
 .containerProductStore{
   width: 100%;
   display: grid;
-  grid-template-columns: repeat(3,1fr);
+  grid-template-columns: repeat(3,0.6fr);
   gap: 2vh;
 }
 .containerTargetItem{
-  width: 25vw;
-  height: 40vh;
+  width: 20vw;
+  height: 35vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -110,9 +116,30 @@ height: 92vh;
   padding: 0.4rem;
   box-shadow: 2px 2px 5px 4px rgba(0, 0, 0, 0.3);
   border-radius: 0.4rem;
-
+  transition: .2s ease  ;
 }
+
+.containerTargetItem:hover{
+cursor: pointer;
+transform: scale(1.1);
+}
+
+
+.containerTargetItem h2{
+  font-size: 2vh;
+  text-align: center;
+}
+
+.targetProps{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+}
+
 .sectionStore img{
+  max-height: 25vh;
   width: 100%;
   border-radius: 0.4rem;
 }
@@ -148,6 +175,12 @@ height: 92vh;
   padding: 0.3rem;
   border-radius: 0.2rem;
 }
+.listaside ul li:hover{
+  cursor: pointer;
+  background-color: #1e3f72;
+  color: #fff;
+}
+
 .liActive{
   background-color: #1e3f72 ;
   color: #fff;
@@ -222,3 +255,41 @@ height: 92vh;
 #acceptButton:hover{
   cursor: pointer;
   background-color: rgb(104, 199, 136);}
+
+#deleteButton:hover{
+  cursor: pointer;
+  background-color: rgb(230, 60, 60);
+}
+
+#deleteButton{
+  background-color: rgb(255, 0, 0);
+}
+
+/*MEDIA QUERYS*/
+
+@media screen and (min-width:1200px){
+  .containerProductStore{
+
+    grid-template-columns: repeat(4,0.6fr);
+  
+  }
+  .containerTargetItem{
+    width: 15vw;
+  }
+  
+}
+
+/* ====SCROLLBAR==== */
+::-webkit-scrollbar{
+  width: 0.7rem;
+  background-color: #fff;
+  border-radius: 0.4rem;
+}
+::-webkit-scrollbar-thumb{
+  background-color: #1e3f72;
+  border-radius: 0.4rem;
+}
+
+::-webkit-scrollbar-thumb:hover{
+  background-color: #5d84be;
+}

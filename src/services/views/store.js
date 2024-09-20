@@ -1,6 +1,8 @@
 /*==========STORE========== */
 
+import { setproductoActivo } from "../../../main.js";
 import { hadleGetProductLocalStorage } from "../persistence/localStorage.js"
+import { openModal } from "./modal.js";
 
 //funcion que encarga de traer elementos y llamar al render
 export const handleGetProductsToStore=()=>{
@@ -19,15 +21,14 @@ export const hadleRenderList=(productosIn)=>{
     const renderProductGroup=(productos, title)=>{
         if (productos.length>0) {
             const productoHTML = productos.map((producto,index)=>{
-                return `<div id='product-${producto.categories}-${index}'>
-                <div class='containerTargetItem'>
+                return `<div class='containerTargetItem' id='product-${producto.categories}-${index}'>
+                <div >
                 <img src='${producto.imagen}'/>
                 <div>
                 <h2>${producto.nombre}</h2>
                 </div>
-                <div>
+                <div class='targetProps'>
                 <p><b>Precio </b>$ ${producto.precio}</p> 
-                <p><b>Categoria </b>${producto.categories}</p> 
                 </div>
                 </div>
                 </div>`
@@ -36,7 +37,9 @@ export const hadleRenderList=(productosIn)=>{
             //retorna la funcion
             return `
                 <section class='sectionStore'>
+                <div class='containerTitleSection'> 
                 <h3>${title}</h3>
+                </div>
                 <div class='containerProductStore'>
                 ${productoHTML.join("")}
                 </div>
@@ -63,11 +66,12 @@ export const hadleRenderList=(productosIn)=>{
 
                 );
                 productContainer.addEventListener("click",()=>{
-                    console.log("productoActivo", element);
-                    
-                })
+                    setproductoActivo(element);
+                    openModal();
+
+                });
                 
-            })
+            });
         }
 
     };
